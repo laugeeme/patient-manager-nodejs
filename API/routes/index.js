@@ -2,11 +2,17 @@
 
 const express = require('express');
 const router = express.Router();
-const patientControllers = require('../controllers/patientControllers');
+const patientController = require('../controllers/patientControllers');
 
 module.exports = function () {
   //add new patients via POST
+  router.post('/patients', patientController.newClient);
 
-  router.post('/patients', patientControllers.newClient);
+  //get all registers from database
+  router.get('/patients',
+    patientController.getPatients
+  );
+
+
   return router;
 };
