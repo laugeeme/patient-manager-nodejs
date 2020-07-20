@@ -14,5 +14,8 @@ module.exports = function () {
   //get patient by ID
   router.get('/patients/:id', patientController.getPatient);
 
+  //update register with ID
+  router.put('/patients/:id', patientController.updatePatient);
+
   return router;
 };
