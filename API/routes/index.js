@@ -9,10 +9,10 @@ module.exports = function () {
   router.post('/patients', patientController.newClient);
 
   //get all registers from database
-  router.get('/patients',
-    patientController.getPatients
-  );
+  router.get('/patients', patientController.getPatients);
 
+  //get patient by ID
+  router.get('/patients/:id', patientController.getPatient);
 
   return router;
 };

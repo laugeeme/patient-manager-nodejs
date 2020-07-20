@@ -16,11 +16,22 @@ exports.newClient = async (req, res, next) => {
 };
 
 /**Get all patients */
-
 exports.getPatients = async (req, res, next) => {
   try {
     const patients = await Patient.find({});
     res.json(patients);
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
+
+/**Get patient by ID */
+
+exports.getPatient = async (req, res, next) => {
+  try {
+    const patient = await Patient.findById(req.params.id);
+    res.json(patient);
   } catch (error) {
     console.log(error);
     next();
