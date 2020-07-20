@@ -8,7 +8,7 @@ exports.newClient = async (req, res, next) => {
 
   try {
     await patient.save();
-    res.json({ message: 'El cliente se agregó correctamente' });
+    res.json({ message: 'The client was added correctly' });
   } catch (error) {
     console.log(error);
     next(); //to go to the next function if there is an error
@@ -49,6 +49,17 @@ exports.updatePatient = async (req, res, next) => {
       }
     );
     res.json(patient);
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
+
+/**Delete patient by ID */
+exports.deletePatient = async (req, res, next) => {
+  try {
+    await Patient.findOneAndDelete({ _id: req.params.id });
+    res.json({ message: 'The patient was removed' });
   } catch (error) {
     console.log(error);
     next();

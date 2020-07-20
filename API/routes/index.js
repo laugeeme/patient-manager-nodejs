@@ -17,5 +17,8 @@ module.exports = function () {
   //update register with ID
   router.put('/patients/:id', patientController.updatePatient);
 
+  //delete register by ID
+  router.delete('/patients/:id', patientController.deletePatient);
+
   return router;
 };
