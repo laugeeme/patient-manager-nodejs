@@ -11,7 +11,8 @@ function createWindow() {
     minWidth: 800,
     minHeight: 600,
     center: true,
-    show: false
+    show: false,
+    icon:'icon.png'
   });
 
   //When app is closed:
