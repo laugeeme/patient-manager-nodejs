@@ -16,7 +16,8 @@ function App() {
       clientAxios
         .get('/patients')
         .then((response) => {
-          console.log(response);
+          //put result in the state
+          saveAppointments(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -29,7 +30,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Patients} />
+        <Route
+          exact
+          path="/"
+          component={() => <Patients appointments={appointments} />}
+        />
         <Route exact path="/new" component={NewAppointment} />
         <Route exact path="/appointment/:id" component={Appointment} />
       </Switch>
