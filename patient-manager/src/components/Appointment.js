@@ -12,12 +12,18 @@ const Appointment = (props) => {
     appointment: { name, owner, date, hour, telephone, symptoms, _id },
   } = props;
 
-
   //delete register
-   const deleteAppointment = id =>{
-     clientAxios.delete(`/patients/${id}`)
-     .then(response => console.log(response));
-   }
+  const deleteAppointment = (id) => {
+    clientAxios
+      .delete(`/patients/${id}`)
+      .then((response) => {
+        props.saveConsult(true);
+        props.history.push('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <Fragment>
