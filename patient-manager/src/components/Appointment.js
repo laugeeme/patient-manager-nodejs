@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import clientAxios from '../config/axios';
 
 const Appointment = (props) => {
   if (!props.appointment) {
@@ -8,8 +9,15 @@ const Appointment = (props) => {
   }
 
   const {
-    appointment: { name, owner, date, hour, telephone, symptoms },
+    appointment: { name, owner, date, hour, telephone, symptoms, _id },
   } = props;
+
+
+  //delete register
+   const deleteAppointment = id =>{
+     clientAxios.delete(`/patients/${id}`)
+     .then(response => console.log(response));
+   }
 
   return (
     <Fragment>
@@ -41,10 +49,14 @@ const Appointment = (props) => {
                 </div>
 
                 <div className="">
-                  <button type="button" className="text-uppercase py-2 px-5 font-weight-bold btn btn-danger col">Delete &times;</button>
+                  <button
+                    type="button"
+                    className="text-uppercase py-2 px-5 font-weight-bold btn btn-danger col"
+                    onClick={() => deleteAppointment(_id)}
+                  >
+                    Delete &times;
+                  </button>
                 </div>
-
-
               </div>
             </div>
           </div>
