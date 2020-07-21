@@ -1,10 +1,13 @@
 'use strict';
 
-fetch('http://localhost:4000/patient')
+fetch('http://localhost:4000/patients')
   .then((response) => response.json())
   .then((data) => showAppointments(data));
 
 function showAppointments(appointments) {
+
+  console.log(appointments);
+  
   const appointmentsContainer = document.querySelector('#citas');
 
   let appointmentsHTML = '';
