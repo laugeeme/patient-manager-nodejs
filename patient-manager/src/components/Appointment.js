@@ -10,7 +10,7 @@ const Appointment = (props) => {
   }
 
   const {
-    appointment: { name, owner, date, hour, telephone, symptoms, _id },
+    appointment: { name, owner, date, hour, telephone, symptomns, _id },
   } = props;
 
   //delete register
@@ -65,7 +65,7 @@ const Appointment = (props) => {
                     {date} - {hour}
                   </small>
                 </div>
-                <p className="mb-0">{symptoms}</p>
+                <p className="mb-0">{symptomns}</p>
                 <div className="contacto py-3">
                   <p>Owner: {owner}</p>
                   <p>Telephone: {telephone}</p>

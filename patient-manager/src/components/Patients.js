@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 const Patients = ({ appointments }) => {
   if (appointments.length === 0) return null;
 
-  console.log(appointments);
-
   return (
     <Fragment>
       <h1 className="my-5">Patient Manager</h1>
@@ -23,7 +21,8 @@ const Patients = ({ appointments }) => {
           <div className="col-md-8 mx-auto">
             <div className="list-group">
               {appointments.map((appointment) => (
-                <Link to={`/appointment/${appointment._id}`}
+                <Link
+                  to={`/appointment/${appointment._id}`}
                   key={appointment._id}
                   className="p-5 list-group-item list-group-item-action flex-column align-items-start"
                 >
@@ -33,13 +32,13 @@ const Patients = ({ appointments }) => {
                       {appointment.date} - {appointment.hour}
                     </small>
                   </div>
-                  <p className="mb-0">{appointment.symptoms}</p>
+                  <p className="mb-0">{appointment.symptomns}</p>
                   <div className="contacto py-3">
                     <p>Owner: {appointment.owner}</p>
                     <p>Telephone: {appointment.telephone}</p>
                   </div>
                 </Link>
-              ))} 
+              ))}
             </div>
           </div>
         </div>

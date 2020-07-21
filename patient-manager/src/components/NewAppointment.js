@@ -10,7 +10,7 @@ const NewAppointment = (props) => {
     date: '',
     hour: '',
     telephone: '',
-    symptoms: '',
+    symptomns: '',
   });
 
   //read form data
@@ -21,22 +21,20 @@ const NewAppointment = (props) => {
     });
   };
 
-
   //send petition to API
-  const createNewAppointment = e => {
-      e.preventDefault();
+  const createNewAppointment = (e) => {
+    e.preventDefault();
 
-      //sent with AXIOS
-      clientAxios.post('patients', appointment)
-      .then(response =>{
-          console.log(response);
+    //sent with AXIOS
+    clientAxios.post('patients', appointment).then((response) => {
+      console.log(response);
 
-          props.saveConsult(true);
+      props.saveConsult(true);
 
-          //redirect
-          props.history.push('/');
-      })
-  }
+      //redirect
+      props.history.push('/');
+    });
+  };
 
   return (
     <Fragment>
@@ -52,7 +50,10 @@ const NewAppointment = (props) => {
             </Link>
           </div>
           <div className="col-md-8 mx-auto">
-            <form onSubmit={createNewAppointment} className="bg-white p-5 bordered">
+            <form
+              onSubmit={createNewAppointment}
+              className="bg-white p-5 bordered"
+            >
               <div className="form-group">
                 <label htmlFor="nombre">Name of Pet</label>
                 <input
@@ -112,10 +113,10 @@ const NewAppointment = (props) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="sintomas">Symptoms</label>
+                <label htmlFor="symptomns">Symptomns</label>
                 <textarea
                   className="form-control"
-                  name="symptoms"
+                  name="symptomns"
                   rows="6"
                   onChange={updateState}
                 ></textarea>

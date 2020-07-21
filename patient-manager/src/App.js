@@ -53,7 +53,12 @@ function App() {
             const appointment = appointments.filter(
               (appointment) => appointment._id === props.match.params.id
             );
-            return <Appointment appointment={appointment[0]}  saveConsult={saveConsult}/>;
+            return (
+              <Appointment
+                appointment={appointment[0]}
+                saveConsult={saveConsult}
+              />
+            );
           }}
         />
       </Switch>
