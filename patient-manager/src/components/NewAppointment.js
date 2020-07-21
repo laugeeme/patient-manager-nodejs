@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import clientAxios from '../config/axios';
 
 const NewAppointment = (props) => {
@@ -30,6 +30,8 @@ const NewAppointment = (props) => {
       clientAxios.post('patients', appointment)
       .then(response =>{
           console.log(response);
+
+          props.saveConsult(true);
 
           //redirect
           props.history.push('/');
@@ -76,11 +78,11 @@ const NewAppointment = (props) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="telefono">Telephone</label>
+                <label htmlFor="telephone">Telephone</label>
                 <input
                   type="tel"
                   className="form-control form-control-lg"
-                  id="telefono"
+                  id="telephone"
                   name="telephone"
                   placeholder="Telephone"
                   onChange={updateState}
@@ -132,4 +134,4 @@ const NewAppointment = (props) => {
   );
 };
 
-export default NewAppointment;
+export default withRouter(NewAppointment);

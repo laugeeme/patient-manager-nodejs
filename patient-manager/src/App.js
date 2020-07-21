@@ -9,23 +9,29 @@ import clientAxios from './config/axios';
 function App() {
   //app state
   const [appointments, saveAppointments] = useState([]);
+  const [consult, saveConsult] = useState(true);
 
   useEffect(() => {
     //From here we will consume our external api
-    const consultApi = () => {
-      clientAxios
-        .get('/patients')
-        .then((response) => {
-          //put result in the state
-          saveAppointments(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+    if (consult) {
+      const consultApi = () => {
+        clientAxios
+          .get('/patients')
+          .then((response) => {
+            //put result in the state
+            saveAppointments(response.data);
 
-    consultApi();
-  }, []);
+            //disable consult
+            saveConsult(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
+      consultApi();
+    }
+  }, [consult]);
 
   return (
     <Router>
@@ -35,7 +41,11 @@ function App() {
           path="/"
           component={() => <Patients appointments={appointments} />}
         />
-        <Route exact path="/new" component={NewAppointment} />
+        <Route
+          exact
+          path="/new"
+          component={() => <NewAppointment saveConsult={saveConsult} />}
+        />
         <Route exact path="/appointment/:id" component={Appointment} />
       </Switch>
     </Router>
