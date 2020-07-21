@@ -23,7 +23,7 @@ const Patients = ({ appointments }) => {
           <div className="col-md-8 mx-auto">
             <div className="list-group">
               {appointments.map((appointment) => (
-                <a
+                <Link to={`/appointment/${appointment._id}`}
                   key={appointment._id}
                   className="p-5 list-group-item list-group-item-action flex-column align-items-start"
                 >
@@ -36,10 +36,10 @@ const Patients = ({ appointments }) => {
                   <p className="mb-0">{appointment.symptoms}</p>
                   <div className="contacto py-3">
                     <p>Owner: {appointment.owner}</p>
-                    <p>Telephone: {appointment.phone}</p>
+                    <p>Telephone: {appointment.telephone}</p>
                   </div>
-                </a>
-              ))}
+                </Link>
+              ))} 
             </div>
           </div>
         </div>

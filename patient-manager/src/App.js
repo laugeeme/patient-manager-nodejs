@@ -46,7 +46,16 @@ function App() {
           path="/new"
           component={() => <NewAppointment saveConsult={saveConsult} />}
         />
-        <Route exact path="/appointment/:id" component={Appointment} />
+        <Route
+          exact
+          path="/appointment/:id"
+          render={(props) => {
+            const appointment = appointments.filter(appointment => appointment._id === props.match.params.id)
+            return (
+            <Appointment 
+            appointment={appointment[0]}/>);
+          }}
+        />
       </Switch>
     </Router>
   );
