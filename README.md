@@ -9,14 +9,14 @@ Based on the [Udemy Course](https://www.udemy.com/course/javascript-moderno-guia
 
 
 <div align="center">
-       <img src="./patient-manager/public/images/web.png" width="600px"</img> 
+       <img src="./front-patient-manager/public/images/web.png" width="600px"</img> 
 </div>
 
 <div align="center">
-       <img src="./patient-manager/public/images/web1.png" width="600px"</img> 
+       <img src="./front-patient-manager/public/images/web1.png" width="600px"</img> 
 </div>
 
 <div align="center">
-       <img src="./patient-manager/public/images/web2.png" width="600px"</img> 
+       <img src="./front-patient-manager/public/images/web2.png" width="600px"</img> 
 </div>
 
