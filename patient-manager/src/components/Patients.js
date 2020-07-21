@@ -22,7 +22,11 @@ const Patients = ({ appointments }) => {
           <div className="col-md-8 mx-auto">
             <div className="list-group">
               {appointments.map((appointment) => (
-                <h3 className="mb-3">{appointment.name}</h3>
+                <a key={appointment._id}>
+                  <h3 key={appointment._id} className="mb-3">
+                    {appointment.name}
+                  </h3>
+                </a>
               ))}
             </div>
           </div>
