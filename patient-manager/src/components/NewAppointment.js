@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
+import clientAxios from '../config/axios';
 
-const NewAppointment = () => {
+const NewAppointment = (props) => {
   //generate state as object
   const [appointment, saveAppointment] = useState({
     name: '',
@@ -20,6 +21,21 @@ const NewAppointment = () => {
     });
   };
 
+
+  //send petition to API
+  const createNewAppointment = e => {
+      e.preventDefault();
+
+      //sent with AXIOS
+      clientAxios.post('patients', appointment)
+      .then(response =>{
+          console.log(response);
+
+          //redirect
+          props.history.push('/');
+      })
+  }
+
   return (
     <Fragment>
       <h1 className="my-5">New Appointment</h1>
@@ -34,7 +50,7 @@ const NewAppointment = () => {
             </Link>
           </div>
           <div className="col-md-8 mx-auto">
-            <form className="bg-white p-5 bordered">
+            <form onSubmit={createNewAppointment} className="bg-white p-5 bordered">
               <div className="form-group">
                 <label htmlFor="nombre">Name of Pet</label>
                 <input
