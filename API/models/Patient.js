@@ -17,6 +17,10 @@ const patientsSchema = new Schema({
     type: String,
     trim: true,
   },
+  telephone: {
+    type: String,
+    trim: true,
+  },
   hour: {
     type: String,
     trim: true,
@@ -26,6 +30,5 @@ const patientsSchema = new Schema({
     trim: true,
   },
 });
-
 
 module.exports = mongoose.model('Patient', patientsSchema);

@@ -1,7 +1,25 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const NewAppointment = () => {
+  //generate state as object
+  const [appointment, saveAppointment] = useState({
+    name: '',
+    owner: '',
+    date: '',
+    hour: '',
+    telephone: '',
+    symptoms: '',
+  });
+
+  //read form data
+  const updateState = (e) => {
+    saveAppointment({
+      ...appointment,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <Fragment>
       <h1 className="my-5">New Appointment</h1>
@@ -23,8 +41,9 @@ const NewAppointment = () => {
                   type="text"
                   className="form-control form-control-lg"
                   id="nombre"
-                  name="nombre"
+                  name="name"
                   placeholder="Name of Pet"
+                  onChange={updateState}
                 />
               </div>
 
@@ -34,8 +53,9 @@ const NewAppointment = () => {
                   type="text"
                   className="form-control form-control-lg"
                   id="propietario"
-                  name="propietario"
+                  name="owner"
                   placeholder="Name of the Owner"
+                  onChange={updateState}
                 />
               </div>
 
@@ -45,8 +65,9 @@ const NewAppointment = () => {
                   type="tel"
                   className="form-control form-control-lg"
                   id="telefono"
-                  name="telefono"
+                  name="telephone"
                   placeholder="Telephone"
+                  onChange={updateState}
                 />
               </div>
 
@@ -56,7 +77,8 @@ const NewAppointment = () => {
                   type="date"
                   className="form-control form-control-lg"
                   id="fecha"
-                  name="fecha"
+                  name="date"
+                  onChange={updateState}
                 />
               </div>
 
@@ -66,7 +88,8 @@ const NewAppointment = () => {
                   type="time"
                   className="form-control form-control-lg"
                   id="hora"
-                  name="hora"
+                  name="hour"
+                  onChange={updateState}
                 />
               </div>
 
@@ -74,8 +97,9 @@ const NewAppointment = () => {
                 <label htmlFor="sintomas">Symptoms</label>
                 <textarea
                   className="form-control"
-                  name="sintomas"
+                  name="symptoms"
                   rows="6"
+                  onChange={updateState}
                 ></textarea>
               </div>
 
