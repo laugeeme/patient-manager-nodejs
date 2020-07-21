@@ -15,6 +15,77 @@ const NewAppointment = () => {
               Back{' '}
             </Link>
           </div>
+          <div className="col-md-8 mx-auto">
+            <form className="bg-white p-5 bordered">
+              <div className="form-group">
+                <label htmlFor="nombre">Name of Pet</label>
+                <input
+                  type="text"
+                  className="form-control form-control-lg"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Name of Pet"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="propietario">Name of the Owner</label>
+                <input
+                  type="text"
+                  className="form-control form-control-lg"
+                  id="propietario"
+                  name="propietario"
+                  placeholder="Name of the Owner"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="telefono">Telephone</label>
+                <input
+                  type="tel"
+                  className="form-control form-control-lg"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="Telephone"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="fecha">Registration date</label>
+                <input
+                  type="date"
+                  className="form-control form-control-lg"
+                  id="fecha"
+                  name="fecha"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="hora">Time of registration</label>
+                <input
+                  type="time"
+                  className="form-control form-control-lg"
+                  id="hora"
+                  name="hora"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="sintomas">Symptoms</label>
+                <textarea
+                  className="form-control"
+                  name="sintomas"
+                  rows="6"
+                ></textarea>
+              </div>
+
+              <input
+                type="submit"
+                className="btn btn-primary mt-3 w-100 p-3 text-uppercase font-weight-bold"
+                value="Create appointment"
+              />
+            </form>
+          </div>
         </div>
       </div>
     </Fragment>
