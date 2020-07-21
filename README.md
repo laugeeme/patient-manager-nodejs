@@ -1,4 +1,8 @@
-## · Build a patient manager with React. Using NodeJS, Express and MongoDB ·
+## · Build a patient manager with React and NodeJS ·
+
+- Using React and Hooks as Frontend
+- Using NodeJS, Express, MongoDB and Axios as Backend.
+- Bootstrap and SweetAlert2 to design website.
 
 Based on the [Udemy Course](https://www.udemy.com/course/javascript-moderno-guia-definitiva-construye-10-proyectos) given by [Juan Pablo de la Torre Valdez](https://twitter.com/JuanDevWP).
 
