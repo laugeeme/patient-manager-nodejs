@@ -22,10 +22,21 @@ const Patients = ({ appointments }) => {
           <div className="col-md-8 mx-auto">
             <div className="list-group">
               {appointments.map((appointment) => (
-                <a key={appointment._id}>
-                  <h3 key={appointment._id} className="mb-3">
-                    {appointment.name}
-                  </h3>
+                <a
+                  key={appointment._id}
+                  className="p-5 list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <div className="d-flex w-100 justify-content-between mb-4">
+                    <h3 className="mb-3">{appointment.name}</h3>
+                    <small className="fecha-alta">
+                      {appointment.date} - {appointment.hour}
+                    </small>
+                  </div>
+                  <p className="mb-0">{appointment.symptoms}</p>
+                  <div className="contacto py-3">
+                    <p>Owner: {appointment.owner}</p>
+                    <p>Telephone: {appointment.phone}</p>
+                  </div>
                 </a>
               ))}
             </div>
