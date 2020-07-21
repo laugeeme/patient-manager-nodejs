@@ -50,10 +50,10 @@ function App() {
           exact
           path="/appointment/:id"
           render={(props) => {
-            const appointment = appointments.filter(appointment => appointment._id === props.match.params.id)
-            return (
-            <Appointment 
-            appointment={appointment[0]}/>);
+            const appointment = appointments.filter(
+              (appointment) => appointment._id === props.match.params.id
+            );
+            return <Appointment appointment={appointment[0]} />;
           }}
         />
       </Switch>
